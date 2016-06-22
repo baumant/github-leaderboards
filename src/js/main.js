@@ -170,7 +170,7 @@ var Header = React.createClass({
         };
     return (
       <header>
-      <h1>GitHub Leaderboard</h1>
+      <h1>GitHub Leaderboards</h1>
       <div className="githubLogin">
         <div style={divStyle}>
           <p><img className='avatar' src={avatar} /> {username}</p>

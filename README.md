@@ -3,15 +3,19 @@
 
 To install:
 
->`npm install -g gulp`
-
 >`npm install`
+
+>`npm start`
+
+To create build after editing:
+
+> `npm install -g gulp`
 
 >`gulp build`
 
-#### The custom api for this project is written in node and can be found here: [https://github.com/baumant/api-projects/blob/master/app/controllers/github.js](https://github.com/baumant/api-projects/blob/master/app/controllers/github.js)
+#### The custom api for this project is written in node/express and can be found here: [https://github.com/baumant/github-leaderboards/blob/master/app/controllers/github.js](https://github.com/baumant/github-leaderboards/blob/master/app/controllers/github.js)
 
-#### And the GitHub authentication can be seen here: [https://github.com/baumant/api-projects/blob/master/app/controllers/ghAuth.js](https://github.com/baumant/api-projects/blob/master/app/controllers/ghAuth.js) 
+#### And the GitHub authentication can be seen here: [https://github.com/baumant/github-leaderboards/blob/master/app/controllers/ghAuth.js](https://github.com/baumant/github-leaderboards/blob/master/app/controllers/ghAuth.js) 
 
 #### The authentication flow was written following GitHub's oAuth Docs: [https://developer.github.com/v3/oauth/](https://developer.github.com/v3/oauth/)
 
