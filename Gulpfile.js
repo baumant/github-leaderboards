@@ -6,7 +6,7 @@ const gulp       = require('gulp'),
 gulp.task('style', function(){
     return gulp.src('./src/sass/*.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./build'));
+    .pipe(gulp.dest('public/build/'));
 });
 gulp.task('scripts', function () {
     gulp.src(['./src/js/main.js'])
@@ -15,7 +15,7 @@ gulp.task('scripts', function () {
             transform: [ 'babelify' ]
         }))
         .pipe(uglify())
-        .pipe(gulp.dest('build/'));
+        .pipe(gulp.dest('public/build/'));
 });
 
 

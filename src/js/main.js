@@ -188,7 +188,7 @@ var Footer = React.createClass({
     return (
       <footer>
         <p>Problems, Questions, Concerns? Feel free to create an <a href="https://github.com/baumant/github-leaderboards/issues/new">Issue</a> on GitHub</p>
-        <a className="creator" href="#"><img src="./baumant.jpg" /> by baumant</a>
+        <a className="creator" target="_blank "href="https://twitter.com/BaumanT"><img src="./public/baumant.jpg" /> by baumant</a>
       </footer>
     );
   }
@@ -216,7 +216,7 @@ var Application = React.createClass({
   loadData: function(userName, sortType, accessToken) {
     this.setState({loaded: 'inline-block'});
     var apiRequest = new XMLHttpRequest(),
-        url = 'https://github-leaderboards.herokuapp.com/api/github?user='+userName+'&access_token='+accessToken;
+        url = '../api/github?user='+userName+'&access_token='+accessToken;
     apiRequest.open('GET', url);
     apiRequest.onreadystatechange = alertContents.bind(this);
     function alertContents() {

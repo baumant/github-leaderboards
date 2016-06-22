@@ -15,21 +15,21 @@ function github() {
             url: 'https://api.github.com/users/' + user + '/following?per_page=100&page=1&access_token=' + access_token,
             json: true,
             headers: {
-              'User-Agent': 'GitHub-Stats-App'
+              'User-Agent': 'GitHub Leaderboards'
             }
           },
           options2 = {
             url: 'https://api.github.com/user?access_token='+access_token,
             json: true,
             headers: {
-              'User-Agent': 'GitHub-Stats-App'
+              'User-Agent': 'GitHub Leaderboards'
             }
           },
           options3 = {
             url: 'https://api.github.com/users/' + user + '/following?per_page=100&page=2&access_token=' + access_token,
             json: true,
             headers: {
-              'User-Agent': 'GitHub-Stats-App'
+              'User-Agent': 'GitHub Leaderboards'
             }
           };
           
@@ -88,7 +88,7 @@ function github() {
           url: 'https://api.github.com/users/' + user.name + '?access_token=' + req.query.access_token,
           json: true,
           headers: {
-            'User-Agent': 'GitHub-Stats-App'
+            'User-Agent': 'GitHub Leaderboards'
           }
         }, function(err, response, data) {
           if(err) throw err;
