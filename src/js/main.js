@@ -216,7 +216,7 @@ var Application = React.createClass({
   loadData: function(userName, sortType, accessToken) {
     this.setState({loaded: 'inline-block'});
     var apiRequest = new XMLHttpRequest(),
-        url = 'https://dry-hamlet-8316.herokuapp.com/api/github?user='+userName+'&access_token='+accessToken;
+        url = 'https://github-leaderboards.herokuapp.com/api/github?user='+userName+'&access_token='+accessToken;
     apiRequest.open('GET', url);
     apiRequest.onreadystatechange = alertContents.bind(this);
     function alertContents() {
