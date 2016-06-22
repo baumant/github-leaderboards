@@ -1,0 +1,17 @@
+{
+  "name": "github-leaderboards",
+  "version": "1.0.0",
+  "description": "See which of your friends has the most repositories and followers on GitHub",
+  "main": "index.js",
+  "author": "baumant",
+  "license": "ISC",
+  "devDependencies": {
+    "babelify": "^6.1.2",
+    "gulp": "~3.9.1",
+    "gulp-browserify": "~0.5.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^1.5.3",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0"
+  }
+}
