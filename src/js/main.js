@@ -188,7 +188,7 @@ var Footer = React.createClass({
     return (
       <footer>
         <p>Problems, Questions, Concerns? Feel free to create an <a href="https://github.com/baumant/github-leaderboards/issues/new">Issue</a> on GitHub</p>
-        <a className="creator" href="#"><img src="../baumant.jpg" /> by baumant</a>
+        <a className="creator" href="#"><img src="./baumant.jpg" /> by baumant</a>
       </footer>
     );
   }
