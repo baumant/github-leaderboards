@@ -148,12 +148,18 @@ var Loading = React.createClass({
 var Header = React.createClass({
   render: function(){
     var user = this.props.user,
-        isLoggedIn = (this.props.accessToken == process.env.ACCESS_TOKEN) ? 'Login with GitHub' : '',
-        username = (user.login == undefined) ? 'not logged in' : user.login,
-        avatar = (user.avatar == undefined) ? '' : user.avatar,
+        isLoggedIn = 'Login with GitHub',
+        username = 'not logged in',
+        avatar = '',
         divStyle = {
-          display: (user.login == undefined) ? 'none' : 'inherit'
+          display: 'none'
         };
+    if(this.props.accessToken != 'fdb9f8daba49c0034bfc890f38477779f42c17c7'){
+      isLoggedIn = '';
+      username = user.login;
+      avatar = user.avatar;
+      divStyle.display = 'inherit';
+    }
     return (
       <header>
       <h1>GitHub Leaderboards</h1>
@@ -195,8 +201,8 @@ var Application = React.createClass({
     this.setState({loaded: 'inline-block'});
     if(accessToken == null){
       this.setState({loaded: 'none'});
-      this.setState({access_token: process.env.ACCESS_TOKEN});
-      this.loadData(userName, sortType, process.env.ACCESS_TOKEN);
+      this.setState({access_token: 'fdb9f8daba49c0034bfc890f38477779f42c17c7'});
+      this.loadData(userName, sortType, 'fdb9f8daba49c0034bfc890f38477779f42c17c7');
     }else{
       this.loadData(userName, sortType, accessToken);
     }
