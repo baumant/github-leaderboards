@@ -42,9 +42,6 @@ header {
 
 .userSearch {
   text-align: center; }
-  .userSearch .alert {
-    color: #d26911;
-    font-weight: bold; }
   .userSearch #search {
     margin: 0 10px;
     min-height: 36px;

@@ -101,8 +101,7 @@ var UserSearch = React.createClass({
   getInitialState: function(){
     return {
       userName: this.props.userName,
-      sortType: this.props.sortType,
-      fontSize: 16
+      sortType: this.props.sortType
     };
   },
   handleUserChange: function(e){
@@ -112,23 +111,13 @@ var UserSearch = React.createClass({
   handleSubmit: function(e){
     e.preventDefault();
     
-    if (this.props.loggedIn.login == undefined) {
-      var alert = document.querySelector('.alert');
-      alert.style.fontSize = this.state.fontSize + 2 + 'px';
-      (this.state.fontSize > 60) ? null : this.setState({fontSize: this.state.fontSize + 2});
-    } else {
-      this.props.onUserSubmit(this.state.userName, this.props.sortType, this.props.accessToken);
-      this.setState({userName: ''});
-    }
+    this.props.onUserSubmit(this.state.userName, this.props.sortType, this.props.accessToken);
+    this.setState({userName: ''});
+    
   },
   
 	render: function() {
-	  var isDisabled = (this.props.loggedIn.login == undefined) ? 'disabled' : null,
-	      isDisabledStyle = (this.props.loggedIn.login == undefined) ? { cursor: 'not-allowed', backgroundColor: '#eee' } : null,
-	      alertStyle = { 
-	        display: (this.props.loggedIn.login == undefined) ? 'inherit' : 'none'
-	      };
-		return (
+	  return (
 			<div className="userSearch">
 			  <form className="userForm" onSubmit={this.handleSubmit}>
 				<h3>Enter GitHub Username: 
@@ -138,12 +127,9 @@ var UserSearch = React.createClass({
           placeholder="Your GitHub Username"
           value={this.state.userName}
           onChange={this.handleUserChange}
-          disabled={isDisabled}
-          style={isDisabledStyle}
         />
         <input id="submit" type="submit" value="Submit" /></h3>
 				</form>
-				<p className="alert" style={alertStyle} >Please login to search for your own leaderboards</p>
 			</div>
 		);
 	}
@@ -162,7 +148,7 @@ var Loading = React.createClass({
 var Header = React.createClass({
   render: function(){
     var user = this.props.user,
-        isLoggedIn = (this.props.accessToken == null) ? 'Login with GitHub' : '',
+        isLoggedIn = (this.props.accessToken == process.env.ACCESS_TOKEN) ? 'Login with GitHub' : '',
         username = (user.login == undefined) ? 'not logged in' : user.login,
         avatar = (user.avatar == undefined) ? '' : user.avatar,
         divStyle = {
@@ -209,6 +195,8 @@ var Application = React.createClass({
     this.setState({loaded: 'inline-block'});
     if(accessToken == null){
       this.setState({loaded: 'none'});
+      this.setState({access_token: process.env.ACCESS_TOKEN});
+      this.loadData(userName, sortType, process.env.ACCESS_TOKEN);
     }else{
       this.loadData(userName, sortType, accessToken);
     }
